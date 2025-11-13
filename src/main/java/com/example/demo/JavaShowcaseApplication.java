@@ -35,12 +35,14 @@ public class JavaShowcaseApplication {
             OOPShowcase.demonstrate();
             ObjectMethodsShowcase.demonstrate();
             StringProcessingShowcase.demonstrate();
+            DateTimeShowcase.demonstrate();
             LambdaShowcase.demonstrate();
             StreamShowcase.demonstrate();
             CollectionsShowcase.demonstrate();
             AdvancedCollectionsShowcase.demonstrate();
             TypesAndConversionsShowcase.demonstrate();
             ConcurrencyShowcase.demonstrate();
+            SpringAnnotationsShowcase.demonstrate();
 
             System.out.println("\n╔══════════════════════════════════════════════════════╗");
             System.out.println("║       ALL SHOWCASES COMPLETED!                       ║");
