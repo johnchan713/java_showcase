@@ -33,6 +33,8 @@ public class JavaShowcaseApplication {
             BasicSyntaxShowcase.demonstrate();
             SwitchCaseShowcase.demonstrate();
             OOPShowcase.demonstrate();
+            ObjectMethodsShowcase.demonstrate();
+            StringProcessingShowcase.demonstrate();
             LambdaShowcase.demonstrate();
             StreamShowcase.demonstrate();
             CollectionsShowcase.demonstrate();
