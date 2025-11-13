@@ -36,6 +36,7 @@ public class JavaShowcaseApplication {
             LambdaShowcase.demonstrate();
             StreamShowcase.demonstrate();
             CollectionsShowcase.demonstrate();
+            AdvancedCollectionsShowcase.demonstrate();
             TypesAndConversionsShowcase.demonstrate();
             ConcurrencyShowcase.demonstrate();
 

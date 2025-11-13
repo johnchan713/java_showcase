@@ -1,5 +1,7 @@
 package com.example.demo.showcase;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -12,17 +14,25 @@ public class CollectionsShowcase {
     public static void demonstrate() {
         System.out.println("\n========== COLLECTIONS SHOWCASE ==========\n");
 
+        rawArrayDemo();
         arrayListDemo();
         linkedListDemo();
+        stackDemo();
         hashSetDemo();
         treeSetDemo();
         linkedHashSetDemo();
         hashMapDemo();
         treeMapDemo();
         linkedHashMapDemo();
+        enumMapDemo();
+        weakHashMapDemo();
+        identityHashMapDemo();
+        sortedMapDemo();
         concurrentHashMapDemo();
         queueDemo();
         dequeDemo();
+        bitSetDemo();
+        bigNumberDemo();
         traversalMethods();
         mapEntrySetDemo();
         utilityMethods();
@@ -646,6 +656,358 @@ public class CollectionsShowcase {
         // Synchronized collections
         List<String> syncList = Collections.synchronizedList(new ArrayList<>());
         System.out.println("Created synchronized list");
+
+        System.out.println();
+    }
+
+    // ========== Raw Arrays ==========
+
+    private static void rawArrayDemo() {
+        System.out.println("--- Raw Arrays ---");
+
+        // One-dimensional array
+        int[] numbers = {1, 2, 3, 4, 5};
+        System.out.println("Array length: " + numbers.length);
+        System.out.println("Element at index 0: " + numbers[0]);
+
+        // Initialize with size
+        String[] names = new String[3];
+        names[0] = "Alice";
+        names[1] = "Bob";
+        names[2] = "Charlie";
+        System.out.println("Names: " + Arrays.toString(names));
+
+        // Multi-dimensional array
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        System.out.println("Matrix[1][1]: " + matrix[1][1]);
+        System.out.println("2D Array: " + Arrays.deepToString(matrix));
+
+        // Array operations
+        int[] arr = {5, 2, 8, 1, 9};
+        Arrays.sort(arr);
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+
+        int index = Arrays.binarySearch(arr, 8);
+        System.out.println("Binary search for 8: index " + index);
+
+        int[] copy = Arrays.copyOf(arr, arr.length);
+        System.out.println("Copied array: " + Arrays.toString(copy));
+
+        Arrays.fill(copy, 0);
+        System.out.println("After fill(0): " + Arrays.toString(copy));
+
+        boolean equal = Arrays.equals(arr, copy);
+        System.out.println("Arrays equal: " + equal);
+
+        System.out.println();
+    }
+
+    // ========== Stack ==========
+
+    private static void stackDemo() {
+        System.out.println("--- Stack (Legacy, use Deque instead) ---");
+
+        Stack<String> stack = new Stack<>();
+
+        // Push elements
+        stack.push("First");
+        stack.push("Second");
+        stack.push("Third");
+        System.out.println("Stack: " + stack);
+
+        // Peek (doesn't remove)
+        System.out.println("Peek: " + stack.peek());
+
+        // Pop (removes and returns)
+        System.out.println("Pop: " + stack.pop());
+        System.out.println("After pop: " + stack);
+
+        // Search (1-based index from top)
+        int position = stack.search("First");
+        System.out.println("Position of 'First': " + position);
+
+        // Check if empty
+        System.out.println("Is empty: " + stack.empty());
+
+        System.out.println();
+    }
+
+    // ========== EnumMap ==========
+
+    enum Color {
+        RED, GREEN, BLUE, YELLOW
+    }
+
+    private static void enumMapDemo() {
+        System.out.println("--- EnumMap ---");
+        System.out.println("Specialized map for enum keys, very efficient");
+
+        EnumMap<Color, String> colorMap = new EnumMap<>(Color.class);
+
+        // Put elements
+        colorMap.put(Color.RED, "#FF0000");
+        colorMap.put(Color.GREEN, "#00FF00");
+        colorMap.put(Color.BLUE, "#0000FF");
+        System.out.println("EnumMap: " + colorMap);
+
+        // Get
+        System.out.println("RED code: " + colorMap.get(Color.RED));
+
+        // Iterate (in enum declaration order)
+        System.out.println("Iteration (enum order):");
+        colorMap.forEach((key, value) ->
+            System.out.println("  " + key + " = " + value));
+
+        // All enum keys present
+        for (Color color : Color.values()) {
+            System.out.println("  Contains " + color + ": " + colorMap.containsKey(color));
+        }
+
+        System.out.println();
+    }
+
+    // ========== WeakHashMap ==========
+
+    private static void weakHashMapDemo() {
+        System.out.println("--- WeakHashMap ---");
+        System.out.println("Keys are weak references, can be garbage collected");
+
+        WeakHashMap<String, Integer> weakMap = new WeakHashMap<>();
+
+        String key1 = new String("key1");
+        String key2 = new String("key2");
+        String key3 = new String("key3");
+
+        weakMap.put(key1, 1);
+        weakMap.put(key2, 2);
+        weakMap.put(key3, 3);
+        System.out.println("Initial size: " + weakMap.size());
+        System.out.println("WeakHashMap: " + weakMap);
+
+        // Remove strong reference
+        key1 = null;
+        System.gc(); // Suggest garbage collection
+
+        try {
+            Thread.sleep(100); // Give GC time to run
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("After GC (may remove key1): " + weakMap);
+        System.out.println("Size after GC: " + weakMap.size());
+
+        System.out.println();
+    }
+
+    // ========== IdentityHashMap ==========
+
+    private static void identityHashMapDemo() {
+        System.out.println("--- IdentityHashMap ---");
+        System.out.println("Uses == instead of equals() for key comparison");
+
+        IdentityHashMap<String, Integer> identityMap = new IdentityHashMap<>();
+
+        String str1 = new String("key");
+        String str2 = new String("key");
+        String str3 = str1;
+
+        identityMap.put(str1, 1);
+        identityMap.put(str2, 2); // Different object, even though equals()
+        identityMap.put(str3, 3); // Same object as str1, replaces value
+
+        System.out.println("Size: " + identityMap.size());
+        System.out.println("IdentityHashMap: " + identityMap);
+
+        System.out.println("str1 == str2: " + (str1 == str2));
+        System.out.println("str1 == str3: " + (str1 == str3));
+        System.out.println("Get str1: " + identityMap.get(str1));
+        System.out.println("Get str2: " + identityMap.get(str2));
+
+        // Compare with regular HashMap
+        HashMap<String, Integer> regularMap = new HashMap<>();
+        regularMap.put(new String("key"), 1);
+        regularMap.put(new String("key"), 2);
+        System.out.println("Regular HashMap size: " + regularMap.size());
+
+        System.out.println();
+    }
+
+    // ========== SortedMap Interface ==========
+
+    private static void sortedMapDemo() {
+        System.out.println("--- SortedMap Interface ---");
+        System.out.println("TreeMap implements SortedMap");
+
+        SortedMap<Integer, String> sortedMap = new TreeMap<>();
+
+        sortedMap.put(3, "Three");
+        sortedMap.put(1, "One");
+        sortedMap.put(4, "Four");
+        sortedMap.put(2, "Two");
+        sortedMap.put(5, "Five");
+
+        System.out.println("SortedMap: " + sortedMap);
+
+        // SortedMap specific methods
+        System.out.println("First key: " + sortedMap.firstKey());
+        System.out.println("Last key: " + sortedMap.lastKey());
+
+        System.out.println("HeadMap (<3): " + sortedMap.headMap(3));
+        System.out.println("TailMap (>=3): " + sortedMap.tailMap(3));
+        System.out.println("SubMap [2,4): " + sortedMap.subMap(2, 4));
+
+        // NavigableMap (extends SortedMap)
+        NavigableMap<Integer, String> navMap = new TreeMap<>(sortedMap);
+        System.out.println("Higher key than 3: " + navMap.higherKey(3));
+        System.out.println("Lower key than 3: " + navMap.lowerKey(3));
+        System.out.println("Descending map: " + navMap.descendingMap());
+
+        System.out.println();
+    }
+
+    // ========== BitSet ==========
+
+    private static void bitSetDemo() {
+        System.out.println("--- BitSet ---");
+        System.out.println("Efficient storage of bits, useful for flags");
+
+        BitSet bitSet = new BitSet(8);
+
+        // Set individual bits
+        bitSet.set(0);
+        bitSet.set(2);
+        bitSet.set(4);
+        bitSet.set(6);
+        System.out.println("BitSet: " + bitSet);
+        System.out.println("Binary representation: " + bitSet.toString());
+
+        // Get bit value
+        System.out.println("Bit 2 is set: " + bitSet.get(2));
+        System.out.println("Bit 3 is set: " + bitSet.get(3));
+
+        // Set range
+        bitSet.set(10, 15);
+        System.out.println("After set(10, 15): " + bitSet);
+
+        // Clear bits
+        bitSet.clear(2);
+        System.out.println("After clear(2): " + bitSet);
+
+        // Flip bits
+        bitSet.flip(0, 8);
+        System.out.println("After flip(0, 8): " + bitSet);
+
+        // BitSet operations
+        BitSet bitSet1 = new BitSet();
+        bitSet1.set(0);
+        bitSet1.set(2);
+        bitSet1.set(4);
+
+        BitSet bitSet2 = new BitSet();
+        bitSet2.set(1);
+        bitSet2.set(2);
+        bitSet2.set(3);
+
+        System.out.println("BitSet1: " + bitSet1);
+        System.out.println("BitSet2: " + bitSet2);
+
+        // AND
+        BitSet andResult = (BitSet) bitSet1.clone();
+        andResult.and(bitSet2);
+        System.out.println("AND: " + andResult);
+
+        // OR
+        BitSet orResult = (BitSet) bitSet1.clone();
+        orResult.or(bitSet2);
+        System.out.println("OR: " + orResult);
+
+        // XOR
+        BitSet xorResult = (BitSet) bitSet1.clone();
+        xorResult.xor(bitSet2);
+        System.out.println("XOR: " + xorResult);
+
+        // Cardinality (number of set bits)
+        System.out.println("Cardinality of bitSet1: " + bitSet1.cardinality());
+
+        // Length and size
+        System.out.println("Length: " + bitSet1.length());
+        System.out.println("Size: " + bitSet1.size());
+
+        System.out.println();
+    }
+
+    // ========== BigInteger and BigDecimal ==========
+
+    private static void bigNumberDemo() {
+        System.out.println("--- BigInteger and BigDecimal ---");
+        System.out.println("Arbitrary-precision numbers");
+
+        // BigInteger
+        System.out.println("BigInteger:");
+        BigInteger big1 = new BigInteger("12345678901234567890");
+        BigInteger big2 = new BigInteger("98765432109876543210");
+
+        System.out.println("big1: " + big1);
+        System.out.println("big2: " + big2);
+
+        // Arithmetic operations
+        System.out.println("Add: " + big1.add(big2));
+        System.out.println("Subtract: " + big2.subtract(big1));
+        System.out.println("Multiply: " + big1.multiply(BigInteger.valueOf(2)));
+        System.out.println("Divide: " + big2.divide(BigInteger.valueOf(3)));
+        System.out.println("Mod: " + big1.mod(BigInteger.valueOf(7)));
+        System.out.println("Pow: " + BigInteger.valueOf(2).pow(100));
+
+        // Comparison
+        System.out.println("Compare: " + big1.compareTo(big2));
+        System.out.println("Max: " + big1.max(big2));
+        System.out.println("Min: " + big1.min(big2));
+
+        // Other operations
+        System.out.println("GCD: " + big1.gcd(big2));
+        System.out.println("Absolute: " + big1.negate().abs());
+        System.out.println("Is probable prime: " + BigInteger.valueOf(17).isProbablePrime(10));
+
+        // BigDecimal
+        System.out.println("\nBigDecimal:");
+        BigDecimal dec1 = new BigDecimal("123.456");
+        BigDecimal dec2 = new BigDecimal("78.9");
+
+        System.out.println("dec1: " + dec1);
+        System.out.println("dec2: " + dec2);
+
+        // Arithmetic with scale
+        System.out.println("Add: " + dec1.add(dec2));
+        System.out.println("Subtract: " + dec1.subtract(dec2));
+        System.out.println("Multiply: " + dec1.multiply(dec2));
+        System.out.println("Divide: " + dec1.divide(dec2, 2, BigDecimal.ROUND_HALF_UP));
+
+        // Avoid float precision issues
+        double d1 = 0.1;
+        double d2 = 0.2;
+        System.out.println("Double: 0.1 + 0.2 = " + (d1 + d2));
+
+        BigDecimal bd1 = new BigDecimal("0.1");
+        BigDecimal bd2 = new BigDecimal("0.2");
+        System.out.println("BigDecimal: 0.1 + 0.2 = " + bd1.add(bd2));
+
+        // Scale and precision
+        BigDecimal value = new BigDecimal("123.4567890");
+        System.out.println("Original: " + value);
+        System.out.println("Scale: " + value.scale());
+        System.out.println("Precision: " + value.precision());
+        System.out.println("Set scale to 2: " + value.setScale(2, BigDecimal.ROUND_HALF_UP));
+
+        // Money calculations (always use BigDecimal)
+        BigDecimal price = new BigDecimal("19.99");
+        BigDecimal quantity = new BigDecimal("3");
+        BigDecimal total = price.multiply(quantity);
+        System.out.println("Price: $" + price + " x " + quantity + " = $" + total);
 
         System.out.println();
     }
