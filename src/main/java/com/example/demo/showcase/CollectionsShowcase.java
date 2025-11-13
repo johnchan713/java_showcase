@@ -1009,6 +1009,60 @@ public class CollectionsShowcase {
         BigDecimal total = price.multiply(quantity);
         System.out.println("Price: $" + price + " x " + quantity + " = $" + total);
 
+        // Additional BigDecimal functions
+        System.out.println("\nBigDecimal advanced functions:");
+        BigDecimal num = new BigDecimal("123.456");
+
+        // signum - returns -1, 0, or 1
+        System.out.println("signum(): " + num.signum());
+        System.out.println("signum(-5): " + new BigDecimal("-5").signum());
+
+        // ulp - Unit in Last Place (smallest value difference)
+        System.out.println("ulp(): " + num.ulp());
+
+        // movePointLeft and movePointRight
+        System.out.println("movePointLeft(2): " + num.movePointLeft(2));
+        System.out.println("movePointRight(2): " + num.movePointRight(2));
+
+        // scaleByPowerOfTen
+        System.out.println("scaleByPowerOfTen(3): " + num.scaleByPowerOfTen(3));
+        System.out.println("scaleByPowerOfTen(-2): " + num.scaleByPowerOfTen(-2));
+
+        // stripTrailingZeros
+        BigDecimal withZeros = new BigDecimal("123.4500");
+        System.out.println("stripTrailingZeros: " + withZeros.stripTrailingZeros());
+
+        // remainder
+        BigDecimal dividend = new BigDecimal("10");
+        BigDecimal divisor = new BigDecimal("3");
+        System.out.println("10 remainder 3: " + dividend.remainder(divisor));
+
+        // divideAndRemainder
+        BigDecimal[] result = dividend.divideAndRemainder(divisor);
+        System.out.println("divideAndRemainder: quotient=" + result[0] + ", remainder=" + result[1]);
+
+        // pow
+        System.out.println("2^10: " + new BigDecimal("2").pow(10));
+
+        // abs, negate
+        BigDecimal negative = new BigDecimal("-123.45");
+        System.out.println("abs(-123.45): " + negative.abs());
+        System.out.println("negate(123.456): " + num.negate());
+
+        // toBigInteger, toBigIntegerExact
+        System.out.println("toBigInteger: " + num.toBigInteger());
+
+        // Rounding modes
+        System.out.println("\nRounding modes for 2.5:");
+        BigDecimal toRound = new BigDecimal("2.5");
+        System.out.println("ROUND_UP: " + toRound.setScale(0, BigDecimal.ROUND_UP));
+        System.out.println("ROUND_DOWN: " + toRound.setScale(0, BigDecimal.ROUND_DOWN));
+        System.out.println("ROUND_CEILING: " + toRound.setScale(0, BigDecimal.ROUND_CEILING));
+        System.out.println("ROUND_FLOOR: " + toRound.setScale(0, BigDecimal.ROUND_FLOOR));
+        System.out.println("ROUND_HALF_UP: " + toRound.setScale(0, BigDecimal.ROUND_HALF_UP));
+        System.out.println("ROUND_HALF_DOWN: " + toRound.setScale(0, BigDecimal.ROUND_HALF_DOWN));
+        System.out.println("ROUND_HALF_EVEN: " + toRound.setScale(0, BigDecimal.ROUND_HALF_EVEN));
+
         System.out.println();
     }
 }
