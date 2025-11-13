@@ -43,6 +43,13 @@ public class JavaShowcaseApplication {
             TypesAndConversionsShowcase.demonstrate();
             ConcurrencyShowcase.demonstrate();
             SpringAnnotationsShowcase.demonstrate();
+            MathShowcase.demonstrate();
+            ThreadPoolExecutorShowcase.demonstrate();
+            ReflectionShowcase.demonstrate();
+            GenericsShowcase.demonstrate();
+            CryptographyShowcase.demonstrate();
+            SpringSecurityShowcase.demonstrate();
+            TestingShowcase.demonstrate();
 
             System.out.println("\n╔══════════════════════════════════════════════════════╗");
             System.out.println("║       ALL SHOWCASES COMPLETED!                       ║");
