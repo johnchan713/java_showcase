@@ -1,14 +1,14 @@
-# Java Showcase - Comprehensive Java 21 Feature Demonstration
+# Java Showcase - Comprehensive Java 21 Enterprise Demonstration
 
-A comprehensive showcase of modern Java 21 features, syntax, and best practices. This project demonstrates everything from basic syntax to advanced features like streams, concurrency, and collections.
+A comprehensive showcase of modern Java 21 features, enterprise frameworks, and industry-standard libraries. This project demonstrates everything from basic syntax to advanced features including reactive programming, distributed systems, financial technologies, machine learning, and more.
 
 ## Features
 
 - **Java 21** - Latest LTS version with modern language features
 - **Spring Boot 3.2.1** - Modern framework foundation
-- **Comprehensive Examples** - 8 major showcase modules covering all Java fundamentals
-- **Real-world Patterns** - Practical examples of Java features
-- **Educational** - Detailed demonstrations with explanations
+- **58 Comprehensive Showcases** - Covering all major Java technologies and frameworks
+- **Enterprise-Ready** - Real-world patterns and industry best practices
+- **Educational** - Detailed demonstrations with explanations and use cases
 
 ## Prerequisites
 
@@ -28,128 +28,292 @@ mvn spring-boot:run
 java -jar target/java-showcase-1.0.0.jar
 ```
 
-## Showcase Modules
+## Showcase Categories
 
-### 1. BasicSyntaxShowcase
-Demonstrates fundamental Java syntax:
-- **Printing**: `System.out.println`, `printf`, formatted strings, text blocks
-- **Loops**: for, while, do-while, nested loops, break/continue
-- **Range-based loops**: for-each, enhanced iterations, forEach with lambdas
-- **Array iteration**: 1D and 2D arrays, various iteration methods
+### Core Java Features (18 showcases)
 
-**Location**: `src/main/java/com/example/demo/showcase/BasicSyntaxShowcase.java`
+#### 1. BasicSyntaxShowcase
+Fundamental Java syntax: printing, loops, range-based iterations, array operations
 
-### 2. SwitchCaseShowcase
-Comprehensive switch statement demonstrations:
-- **Traditional switch**: Classic switch with break statements
-- **Switch with Strings**: String matching in switch (Java 7+)
-- **New switch expressions**: Arrow syntax, yield keyword (Java 14+)
-- **Pattern matching**: Type patterns, guard clauses (Java 21+)
-- **instanceof patterns**: Pattern matching with switch and instanceof
+#### 2. SwitchCaseShowcase
+Traditional switch, switch expressions, pattern matching, guard clauses
 
-**Location**: `src/main/java/com/example/demo/showcase/SwitchCaseShowcase.java`
+#### 3. OOPShowcase
+Classes, inheritance, abstract classes, interfaces, polymorphism, instanceof patterns
 
-### 3. OOPShowcase
-Object-Oriented Programming concepts:
-- **Classes and Objects**: Constructors, methods, getters/setters
-- **Inheritance**: extends, super, method overriding
-- **Abstract Classes**: Abstract methods and concrete implementations
-- **Interfaces**: Multiple interface implementation, default methods
-- **instanceof Operator**: Type checking and pattern matching
-- **Polymorphism**: Runtime polymorphism demonstrations
+#### 4. ObjectMethodsShowcase
+toString(), equals(), hashCode(), clone(), finalize(), wait/notify
 
-**Location**: `src/main/java/com/example/demo/showcase/OOPShowcase.java`
+#### 5. StringProcessingShowcase
+String manipulation, StringBuilder, StringBuffer, regular expressions, text blocks
 
-### 4. LambdaShowcase
-Lambda expressions and functional programming:
-- **Basic Lambdas**: Single and multiple parameters, method bodies
-- **Functional Interfaces**: Custom @FunctionalInterface implementations
-- **Built-in Interfaces**: Predicate, Function, Consumer, Supplier, BiFunction, etc.
-- **Method References**: Static, instance, arbitrary object, constructor references
-- **Lambda with Collections**: forEach, removeIf, replaceAll, sort
-- **Custom Functional Interfaces**: TriFunction, Validator with composition
+#### 6. DateTimeShowcase
+LocalDate, LocalTime, LocalDateTime, ZonedDateTime, formatting, parsing, calculations
 
-**Location**: `src/main/java/com/example/demo/showcase/LambdaShowcase.java`
+#### 7. LambdaShowcase
+Lambda expressions, functional interfaces, method references, composition
 
-### 5. StreamShowcase
-Comprehensive Java Stream API demonstrations:
-- **Creating Streams**: From collections, arrays, Stream.of(), infinite streams, ranges
-- **Intermediate Operations**: filter, map, flatMap, distinct, sorted, limit, skip
-- **Terminal Operations**: forEach, count, anyMatch, allMatch, findFirst, min, max
-- **Map Operations**: map, mapToInt, mapToDouble, flatMap
-- **Filter Operations**: Multiple filters, takeWhile, dropWhile
-- **Reduce Operations**: Sum, product, min, max, custom reductions
-- **Peek Operation**: Debugging and side effects
-- **Parallel Streams**: parallelStream, performance comparisons
-- **Collectors**: toList, toSet, joining, groupingBy, partitioningBy, summarizing
+#### 8. StreamShowcase
+Stream API, intermediate operations, terminal operations, collectors, parallel streams
 
-**Location**: `src/main/java/com/example/demo/showcase/StreamShowcase.java`
+#### 9. CollectionsShowcase
+List, Set, Map implementations (ArrayList, HashSet, HashMap, TreeMap, etc.)
 
-### 6. CollectionsShowcase
-Detailed collection implementations and usage:
+#### 10. AdvancedCollectionsShowcase
+Specialized collections, concurrent collections, immutable collections
 
-**List Implementations**:
-- **ArrayList**: Fast random access, dynamic arrays
-- **LinkedList**: Fast insertion/deletion, implements Deque
+#### 11. TypesAndConversionsShowcase
+Primitives, wrappers, autoboxing, string conversions, Optional, records
 
-**Set Implementations**:
-- **HashSet**: Unordered, O(1) operations, no duplicates
-- **TreeSet**: Sorted (natural/comparator), O(log n), navigation methods
-- **LinkedHashSet**: Insertion order maintained
+#### 12. ConcurrencyShowcase
+Threading, synchronized, ExecutorService, atomic variables, thread pools
 
-**Map Implementations**:
-- **HashMap**: Unordered, O(1) operations, allows null key
-- **TreeMap**: Sorted by keys, O(log n), navigation methods
-- **LinkedHashMap**: Insertion/access order, LRU cache example
-- **ConcurrentHashMap**: Thread-safe, high concurrency, atomic operations
+#### 13. ThreadPoolExecutorShowcase
+Custom thread pools, task scheduling, work stealing, rejection policies
 
-**Queue/Deque**:
-- **PriorityQueue**: Min/max heap, priority ordering
-- **ArrayDeque**: Double-ended queue, stack/queue operations
+#### 14. MathShowcase
+BigInteger, BigDecimal, Math operations, random numbers, statistics
 
-**Traversal Methods**: EntrySet, keySet, values, Iterator, forEach, streams
+#### 15. ReflectionShowcase
+Class introspection, dynamic method invocation, field access, annotations
 
-**Utility Methods**: Collections.sort, reverse, shuffle, binarySearch, etc.
+#### 16. GenericsShowcase
+Generic classes, methods, bounded types, wildcards, type erasure
 
-**Location**: `src/main/java/com/example/demo/showcase/CollectionsShowcase.java`
+#### 17. CryptographyShowcase
+Hashing (MD5, SHA), encryption (AES, RSA), digital signatures, key generation
 
-### 7. TypesAndConversionsShowcase
-Primitive types, wrappers, and conversions:
-- **Primitives**: byte, short, int, long, float, double, char, boolean
-- **Wrapper Classes**: Byte, Short, Integer, Long, Float, Double, Character, Boolean
-- **Autoboxing/Unboxing**: Automatic conversions between primitives and wrappers
-- **String Conversions**: valueOf, toString, parsing
-- **Parsing**: parseInt, parseDouble, parseBoolean with radix support
-- **Type Conversions**: Widening, narrowing, casting
-- **Pair and Tuple**: Custom record-based implementations
-- **Optional**: Handling null safely with Optional API
+#### 18. TestingShowcase
+JUnit 5, Mockito, test doubles, parameterized tests, best practices
 
-**Location**: `src/main/java/com/example/demo/showcase/TypesAndConversionsShowcase.java`
+### Spring Framework (2 showcases)
 
-### 8. ConcurrencyShowcase
-Multi-threading and concurrency features:
-- **Basic Threading**: Thread class, Runnable interface, lambda threads
-- **Volatile Keyword**: Memory visibility across threads
-- **ThreadLocal**: Thread-specific values
-- **Synchronized**: Thread-safe operations, synchronized methods and blocks
-- **ExecutorService**: Thread pools, Callable, Future
-- **Atomic Variables**: Lock-free thread-safe operations (AtomicInteger, etc.)
+#### 19. SpringAnnotationsShowcase
+@Component, @Autowired, @Value, @Configuration, @Bean, dependency injection
 
-**Location**: `src/main/java/com/example/demo/showcase/ConcurrencyShowcase.java`
+#### 20. SpringContextShowcase
+ApplicationContext, bean lifecycle, profiles, events, SpEL
 
-## REST API Endpoints
+### Security (1 showcase)
 
-The application also includes a REST API with the following endpoints:
+#### 21. SpringSecurityShowcase
+Authentication, authorization, password encoding, JWT, OAuth2, CORS
 
-- `GET /api/hello` - Greeting endpoint
-- `POST /api/process` - Pattern matching demonstration
-- `POST /api/users` - User creation
-- `POST /api/transform` - Data transformation
-- `GET /api/calculate` - Mathematical operations
-- `POST /api/manipulate` - String manipulation
-- `GET /api/health` - Health check
+### Data Processing & Serialization (4 showcases)
 
-See the curl examples below for usage.
+#### 22. JacksonShowcase
+JSON parsing, serialization, ObjectMapper, JsonNode, custom serializers
+
+#### 23. JAXBShowcase
+XML binding, marshalling, unmarshalling, annotations, schema validation
+
+#### 24. GsonShowcase
+Google's JSON library, serialization, custom adapters, type tokens
+
+#### 25. AvroShowcase
+Apache Avro, schema evolution, binary serialization, code generation
+
+### Messaging & Event Streaming (4 showcases)
+
+#### 26. KafkaShowcase
+Producer, consumer, streams, transactions, serialization, partitioning
+
+#### 27. JMSShowcase
+Java Message Service, queues, topics, message selectors, transactions
+
+#### 28. RabbitMQShowcase
+AMQP protocol, exchanges, queues, routing, acknowledgments, dead letter queues
+
+#### 29. SolaceShowcase
+Enterprise messaging, guaranteed delivery, pub/sub, request/reply
+
+### Data Storage & Caching (4 showcases)
+
+#### 30. JDBCShowcase
+Database connectivity, prepared statements, transactions, batch operations
+
+#### 31. RedisShowcase
+Key-value operations, data structures, pub/sub, transactions, pipelining
+
+#### 32. DynamoDBShowcase
+AWS NoSQL database, CRUD operations, queries, indexes, batch operations
+
+#### 33. HazelcastShowcase
+In-memory data grid, distributed maps, queues, locks, events
+
+### Reactive Programming & Networking (5 showcases)
+
+#### 34. ReactorShowcase
+Project Reactor, Mono, Flux, operators, backpressure, schedulers
+
+#### 35. NettyShowcase
+Asynchronous networking, TCP/HTTP servers, channels, pipelines, codecs
+
+#### 36. DisruptorShowcase
+LMAX Disruptor, ring buffer, high-performance inter-thread messaging
+
+#### 37. WebSocketShowcase
+WebSocket protocol, bidirectional communication, STOMP, real-time updates
+
+#### 38. ApacheMINAShowcase
+Network application framework, IoT protocols, custom codecs, filters
+
+### Integration & Routing (1 showcase)
+
+#### 39. ApacheCamelShowcase
+Enterprise Integration Patterns, routing, transformations, endpoints
+
+### Big Data (1 showcase)
+
+#### 40. HadoopShowcase
+HDFS operations, MapReduce, YARN, distributed file processing
+
+### Resilience & Observability (3 showcases)
+
+#### 41. Resilience4jShowcase
+Circuit breaker, rate limiter, retry, bulkhead, time limiter, cache
+
+#### 42. MicrometerShowcase
+Metrics collection, counters, gauges, timers, distribution summaries
+
+#### 43. LoggingShowcase
+SLF4J, Logback, log levels, MDC, structured logging, log patterns
+
+### Testing & Automation (2 showcases)
+
+#### 44. AwaitilityShowcase
+Asynchronous testing, polling, conditions, timeouts, Hamcrest matchers
+
+#### 45. SeleniumShowcase
+Web browser automation, WebDriver, page objects, waits, assertions
+
+### DevOps & Container Orchestration (2 showcases)
+
+#### 46. DockerClientShowcase
+Container management, images, volumes, networks, Docker API integration
+
+#### 47. KubernetesShowcase
+Pod management, deployments, services, config maps, secrets, scaling
+
+### Financial & Trading (3 showcases)
+
+#### 48. QuickFIXJShowcase
+FIX protocol for electronic trading, session management, order handling, execution reports
+
+#### 49. StrataShowcase
+Market risk analytics, derivative pricing (swaps, options, FX forwards), yield curves
+
+#### 50. TA4JShowcase
+Technical analysis indicators (SMA, RSI, MACD, Bollinger Bands), backtesting, trading strategies
+
+### Payment Processing (2 showcases)
+
+#### 51. StripeShowcase
+Payment intents, customers, subscriptions, refunds, webhooks, payment methods
+
+#### 52. JavaMoneyShowcase
+JSR 354 Money and Currency API, monetary amounts, currency conversion, formatting
+
+### Banking & Finance (1 showcase)
+
+#### 53. IBAN4JShowcase
+IBAN validation and generation, BIC codes, country code validation
+
+### Blockchain & Cryptocurrency (1 showcase)
+
+#### 54. BitcoinJShowcase
+Bitcoin wallets, HD wallets (BIP32/39/44), transactions, SPV, blockchain interaction
+
+### Mathematics & Linear Algebra (1 showcase)
+
+#### 55. OjAlgoShowcase
+Linear algebra, matrix operations, linear programming, optimization, eigenvalues
+
+### Machine Learning (1 showcase)
+
+#### 56. SMILEShowcase
+Classification (Random Forest, Logistic Regression, SVM), regression, clustering (K-Means, DBSCAN), dimensionality reduction (PCA, t-SNE)
+
+### Matrix Operations (1 showcase)
+
+#### 57. EJMLShowcase
+Efficient Java Matrix Library, matrix operations, decompositions (SVD, QR, Eigenvalue), solving linear systems
+
+### WebSocket Communication (1 showcase)
+
+#### 58. WebSocketShowcase
+Real-time bidirectional communication, STOMP messaging, pub/sub patterns
+
+## Technology Stack
+
+### Core Technologies
+- Java 21 (LTS)
+- Spring Boot 3.2.1
+- Maven 3.6+
+
+### Data Processing
+- Jackson 2.15.3 (JSON)
+- JAXB (XML)
+- Google Gson 2.10.1
+- Apache Avro 1.11.3
+
+### Messaging & Streaming
+- Apache Kafka 3.6.1
+- RabbitMQ 5.20.0
+- Solace 10.22.0
+- Spring JMS
+
+### Data Storage
+- Redis (Lettuce 6.3.1)
+- AWS DynamoDB 2.21.45
+- Hazelcast 5.3.6
+- JDBC/H2
+
+### Reactive & Networking
+- Project Reactor 3.6.1
+- Netty 4.1.104
+- LMAX Disruptor 4.0.0
+- WebSocket (Spring)
+
+### Integration
+- Apache Camel 4.3.0
+- Apache MINA 2.2.3
+- Apache Hadoop 3.3.6
+
+### Resilience & Monitoring
+- Resilience4j 2.2.0
+- Micrometer 1.12.1
+- SLF4J/Logback
+
+### Testing & DevOps
+- JUnit 5
+- Mockito 5.8.0
+- Awaitility 4.2.0
+- Selenium 4.16.1
+- Docker Java 3.3.4
+- Kubernetes Java Client 19.0.0
+
+### Security
+- Spring Security 6.2.1
+- Bouncy Castle 1.77
+
+### Financial & Trading
+- QuickFIX/J 2.3.1
+- Strata 2.12.38
+- TA4J 0.15
+
+### Payment & Banking
+- Stripe Java 24.16.0
+- JavaMoney (Moneta) 1.4.2
+- IBAN4J 3.2.7-RELEASE
+
+### Blockchain
+- BitcoinJ 0.16.2
+
+### Mathematics & ML
+- ojAlgo 53.0.0
+- SMILE 3.0.2
+- EJML 0.43.1
 
 ## Project Structure
 
@@ -161,14 +325,11 @@ java-showcase/
 │   │   │   └── com/example/demo/
 │   │   │       ├── JavaShowcaseApplication.java (Main + CommandLineRunner)
 │   │   │       ├── showcase/
+│   │   │       │   ├── [58 showcase files]
 │   │   │       │   ├── BasicSyntaxShowcase.java
-│   │   │       │   ├── SwitchCaseShowcase.java
-│   │   │       │   ├── OOPShowcase.java
-│   │   │       │   ├── LambdaShowcase.java
-│   │   │       │   ├── StreamShowcase.java
-│   │   │       │   ├── CollectionsShowcase.java
-│   │   │       │   ├── TypesAndConversionsShowcase.java
-│   │   │       │   └── ConcurrencyShowcase.java
+│   │   │       │   ├── QuickFIXJShowcase.java
+│   │   │       │   ├── SMILEShowcase.java
+│   │   │       │   └── ...
 │   │   │       ├── controller/
 │   │   │       │   └── FunctionController.java
 │   │   │       ├── model/
@@ -194,7 +355,72 @@ java-showcase/
 7. **Method References** - Compact lambda alternatives
 8. **Optional API** - Null-safe value handling
 9. **var Keyword** - Local variable type inference
-10. **Sealed Classes** - Controlled inheritance (can be added)
+10. **Virtual Threads** - Lightweight concurrency (Project Loom)
+
+## Use Cases by Domain
+
+### Financial Services
+- **Trading Systems**: QuickFIX/J for FIX protocol integration
+- **Risk Management**: Strata for derivative pricing and market risk analytics
+- **Algorithmic Trading**: TA4J for technical analysis and backtesting
+- **Payment Processing**: Stripe for payment intents, subscriptions, webhooks
+- **Banking**: IBAN4J for account validation, JavaMoney for currency handling
+
+### Blockchain & Cryptocurrency
+- **Wallet Management**: BitcoinJ for HD wallets and transaction signing
+- **Blockchain Integration**: SPV client, transaction broadcasting
+
+### Data Science & Machine Learning
+- **Classification & Regression**: SMILE for supervised learning
+- **Clustering**: K-Means, DBSCAN, hierarchical clustering
+- **Dimensionality Reduction**: PCA, t-SNE, UMAP
+- **Linear Algebra**: ojAlgo for matrix operations and optimization
+- **Matrix Operations**: EJML for high-performance computations
+
+### Enterprise Integration
+- **Message Routing**: Apache Camel for EIP patterns
+- **Event Streaming**: Kafka for distributed event processing
+- **Messaging**: RabbitMQ, Solace for reliable message delivery
+- **Caching**: Redis, Hazelcast for distributed caching
+
+### Microservices & Cloud
+- **Resilience**: Resilience4j for circuit breakers, retries, rate limiting
+- **Observability**: Micrometer for metrics, distributed tracing
+- **Container Orchestration**: Kubernetes client for pod management
+- **Service Mesh**: Integration patterns for microservices
+
+### Real-time Applications
+- **Reactive Streams**: Project Reactor for backpressure handling
+- **WebSocket**: Bidirectional real-time communication
+- **High-Performance**: LMAX Disruptor for low-latency messaging
+- **Async I/O**: Netty for non-blocking network applications
+
+## Building and Running
+
+### Compile Only
+```bash
+mvn clean compile
+```
+
+### Run Tests
+```bash
+mvn test
+```
+
+### Package as JAR
+```bash
+mvn clean package
+```
+
+### Run with Maven
+```bash
+mvn spring-boot:run
+```
+
+### Run JAR
+```bash
+java -jar target/java-showcase-1.0.0.jar
+```
 
 ## Running Specific Showcases
 
@@ -203,13 +429,67 @@ To run individual showcases, you can modify `JavaShowcaseApplication.java` or cr
 ```java
 public static void main(String[] args) {
     // Run specific showcase
-    BasicSyntaxShowcase.demonstrate();
+    QuickFIXJShowcase.demonstrate();
     // or
-    StreamShowcase.demonstrate();
+    SMILEShowcase.demonstrate();
+    // or
+    ReactorShowcase.demonstrate();
 }
 ```
 
-## Testing with curl (REST API)
+## Learning Path
+
+### Beginner
+1. BasicSyntaxShowcase
+2. SwitchCaseShowcase
+3. OOPShowcase
+4. TypesAndConversionsShowcase
+5. CollectionsShowcase
+
+### Intermediate
+6. LambdaShowcase
+7. StreamShowcase
+8. ConcurrencyShowcase
+9. StringProcessingShowcase
+10. DateTimeShowcase
+
+### Advanced - Enterprise
+11. SpringAnnotationsShowcase
+12. KafkaShowcase
+13. RedisShowcase
+14. ReactorShowcase
+15. Resilience4jShowcase
+
+### Advanced - Financial
+16. QuickFIXJShowcase
+17. StrataShowcase
+18. TA4JShowcase
+19. StripeShowcase
+20. JavaMoneyShowcase
+
+### Advanced - Machine Learning
+21. SMILEShowcase
+22. OjAlgoShowcase
+23. EJMLShowcase
+
+### Advanced - DevOps
+24. DockerClientShowcase
+25. KubernetesShowcase
+26. MicrometerShowcase
+
+## REST API Endpoints
+
+The application includes a REST API with the following endpoints:
+
+- `GET /api/hello` - Greeting endpoint
+- `POST /api/process` - Pattern matching demonstration
+- `POST /api/users` - User creation
+- `POST /api/transform` - Data transformation
+- `GET /api/calculate` - Mathematical operations
+- `POST /api/manipulate` - String manipulation
+- `GET /api/health` - Health check
+
+### Testing with curl
 
 ```bash
 # Hello endpoint
@@ -239,52 +519,33 @@ curl -X POST http://localhost:8080/api/manipulate \
   -d '{"text":"hello world","operation":"capitalize"}'
 ```
 
-## Building and Running
-
-### Compile Only
-```bash
-mvn clean compile
-```
-
-### Run Tests
-```bash
-mvn test
-```
-
-### Package as JAR
-```bash
-mvn clean package
-```
-
-### Run with Maven
-```bash
-mvn spring-boot:run
-```
-
-### Run JAR
-```bash
-java -jar target/java-showcase-1.0.0.jar
-```
-
-## Learning Path
-
-Recommended order for studying the showcases:
-
-1. **BasicSyntaxShowcase** - Start with fundamentals
-2. **SwitchCaseShowcase** - Control flow and pattern matching
-3. **OOPShowcase** - Object-oriented concepts
-4. **TypesAndConversionsShowcase** - Type system understanding
-5. **CollectionsShowcase** - Data structures
-6. **LambdaShowcase** - Functional programming basics
-7. **StreamShowcase** - Functional operations on collections
-8. **ConcurrencyShowcase** - Multi-threading (advanced)
-
 ## Additional Resources
 
+### Official Documentation
 - [Official Java Documentation](https://docs.oracle.com/en/java/javase/21/)
 - [Java 21 Release Notes](https://www.oracle.com/java/technologies/javase/21-relnote-issues.html)
 - [Spring Boot Documentation](https://spring.io/projects/spring-boot)
 
+### Financial Libraries
+- [QuickFIX/J Documentation](https://www.quickfixj.org/)
+- [Strata Documentation](https://strata.opengamma.io/)
+- [TA4J Documentation](https://ta4j.github.io/ta4j-wiki/)
+- [Stripe Java Documentation](https://stripe.com/docs/api/java)
+
+### Machine Learning & Mathematics
+- [SMILE Documentation](https://haifengl.github.io/)
+- [ojAlgo Documentation](https://www.ojalgo.org/)
+- [EJML Documentation](http://ejml.org/)
+
+### Enterprise Integration
+- [Apache Kafka Documentation](https://kafka.apache.org/documentation/)
+- [Project Reactor Documentation](https://projectreactor.io/docs)
+- [Resilience4j Documentation](https://resilience4j.readme.io/)
+
 ## License
 
 See LICENSE file for details.
+
+## Contributing
+
+This is a comprehensive educational project. Feel free to use it for learning Java 21 and enterprise Java development.
