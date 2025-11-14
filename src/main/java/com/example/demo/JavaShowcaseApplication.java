@@ -77,6 +77,16 @@ public class JavaShowcaseApplication {
             AwaitilityShowcase.demonstrate();
             DockerClientShowcase.demonstrate();
             KubernetesShowcase.demonstrate();
+            QuickFIXJShowcase.demonstrate();
+            StrataShowcase.demonstrate();
+            TA4JShowcase.demonstrate();
+            StripeShowcase.demonstrate();
+            JavaMoneyShowcase.demonstrate();
+            IBAN4JShowcase.demonstrate();
+            BitcoinJShowcase.demonstrate();
+            OjAlgoShowcase.demonstrate();
+            SMILEShowcase.demonstrate();
+            EJMLShowcase.demonstrate();
 
             System.out.println("\n╔══════════════════════════════════════════════════════╗");
             System.out.println("║       ALL SHOWCASES COMPLETED!                       ║");
