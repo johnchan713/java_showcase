@@ -55,6 +55,12 @@ public class JavaShowcaseApplication {
             RedisShowcase.demonstrate();
             Resilience4jShowcase.demonstrate();
             LoggingShowcase.demonstrate();
+            ApacheCamelShowcase.demonstrate();
+            JacksonShowcase.demonstrate();
+            JAXBShowcase.demonstrate();
+            JMSShowcase.demonstrate();
+            JDBCShowcase.demonstrate();
+            DynamoDBShowcase.demonstrate();
 
             System.out.println("\n╔══════════════════════════════════════════════════════╗");
             System.out.println("║       ALL SHOWCASES COMPLETED!                       ║");
