@@ -61,6 +61,11 @@ public class JavaShowcaseApplication {
             JMSShowcase.demonstrate();
             JDBCShowcase.demonstrate();
             DynamoDBShowcase.demonstrate();
+            HazelcastShowcase.demonstrate();
+            SolaceShowcase.demonstrate();
+            HadoopShowcase.demonstrate();
+            ApacheMINAShowcase.demonstrate();
+            SeleniumShowcase.demonstrate();
 
             System.out.println("\n╔══════════════════════════════════════════════════════╗");
             System.out.println("║       ALL SHOWCASES COMPLETED!                       ║");
