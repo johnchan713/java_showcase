@@ -50,6 +50,11 @@ public class JavaShowcaseApplication {
             CryptographyShowcase.demonstrate();
             SpringSecurityShowcase.demonstrate();
             TestingShowcase.demonstrate();
+            KafkaShowcase.demonstrate();
+            SpringContextShowcase.demonstrate();
+            RedisShowcase.demonstrate();
+            Resilience4jShowcase.demonstrate();
+            LoggingShowcase.demonstrate();
 
             System.out.println("\n╔══════════════════════════════════════════════════════╗");
             System.out.println("║       ALL SHOWCASES COMPLETED!                       ║");
