@@ -55,6 +55,28 @@ public class JavaShowcaseApplication {
             RedisShowcase.demonstrate();
             Resilience4jShowcase.demonstrate();
             LoggingShowcase.demonstrate();
+            ApacheCamelShowcase.demonstrate();
+            JacksonShowcase.demonstrate();
+            JAXBShowcase.demonstrate();
+            JMSShowcase.demonstrate();
+            JDBCShowcase.demonstrate();
+            DynamoDBShowcase.demonstrate();
+            HazelcastShowcase.demonstrate();
+            SolaceShowcase.demonstrate();
+            HadoopShowcase.demonstrate();
+            ApacheMINAShowcase.demonstrate();
+            SeleniumShowcase.demonstrate();
+            MicrometerShowcase.demonstrate();
+            WebSocketShowcase.demonstrate();
+            ReactorShowcase.demonstrate();
+            DisruptorShowcase.demonstrate();
+            NettyShowcase.demonstrate();
+            RabbitMQShowcase.demonstrate();
+            GsonShowcase.demonstrate();
+            AvroShowcase.demonstrate();
+            AwaitilityShowcase.demonstrate();
+            DockerClientShowcase.demonstrate();
+            KubernetesShowcase.demonstrate();
 
             System.out.println("\n╔══════════════════════════════════════════════════════╗");
             System.out.println("║       ALL SHOWCASES COMPLETED!                       ║");
